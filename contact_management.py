@@ -1,5 +1,6 @@
 import mysql.connector
 from mysql.connector import Error
+import os
 
 
 class Contact:
@@ -15,8 +16,8 @@ def create_connection():
         connection = mysql.connector.connect(
             host='localhost',
             user='root',
-            password='PASSWORD',
-            database='YOUR DATABASE NAME'
+            password= os.getenv('Password'),
+            database= os.getenv('database_name')
         )
         if connection.is_connected():
             print("Connected to MySQL database")
